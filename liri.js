@@ -24,15 +24,15 @@ var value = process.argv.slice(3).join(" ");
 
 switch (action){
     case "concert-this":
-        concert-this();
+        concert-this(value);
         break;
     
     case "spotify-this-song":
-        spotify-this-song();
+        spotify-this-song(value);
         break;
 
     case "movie-this":
-        movie-this();
+        movie-this(value);
         break;
 
     case "do-what-it-says":
