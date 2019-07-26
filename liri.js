@@ -17,28 +17,25 @@ var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
 
 
-// how it would work in a switch
-// case "movie-this"
-//movie api call
-
 //Gives command line statements meaning 
 var action = process.argv[2];
 var value = process.argv.slice(3).join(" ");
 
+//what to do when each argument is given
 switch (action){
     case "concert-this":
-        concert-this(value);
+        concert(value);
         break;
     
     case "spotify-this-song":
-        spotify-this-song(value);
+        spotifySong(value);
         break;
 
     case "movie-this":
-        movie-this(value);
+        movie(value);
         break;
 
     case "do-what-it-says":
-        do-what-it-says();
+        random();
         break;
 }
