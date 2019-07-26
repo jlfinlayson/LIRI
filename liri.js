@@ -1,3 +1,6 @@
+//Grap Spotify.js
+var LIRI = require("./spotify.js");
+
 // Grab the axios package
 var axios = require("axios");
 
