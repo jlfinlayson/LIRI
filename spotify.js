@@ -1,5 +1,6 @@
 var axios = require("axios");
 var fs = require("fs");
+var moment = require('moment');
 
 var LIRI = function () {
     var divider = "\n------------------------------------------------------------\n\n";
@@ -13,7 +14,7 @@ var LIRI = function () {
             var concertData = [
                 "Venue: " + jsonData.venue.name,
                 "Location: " + jsonData.venue.city,
-                "Date: " + jsonData.datetime
+                "Date: " + moment(jsonData.datetime.format("MM DD YYYY"))
             ].join("\n\n");
 
             fs.appendFile("log.txt", concertData + divider, function (err) {
