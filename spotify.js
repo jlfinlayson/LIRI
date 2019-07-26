@@ -52,8 +52,6 @@ this.spotifySong = function () {
 };;
 
 
-
-
 //movie-this
 this.movie = function () {
     var URL = "http://www.omdbapi.com/?t=" + value + "&y=&plot=short&apikey=trilogy";
