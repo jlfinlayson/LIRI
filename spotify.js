@@ -7,7 +7,6 @@ var LIRI = function () {
     //concert-this    
     this.concert = function () {
         var URL = "https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp";
-        var concertsArray = [];
         axios.get(URL).then(function (response) {
             var jsonData = response.data;
 
@@ -24,9 +23,6 @@ var LIRI = function () {
 
         })
     };
-
-
-
 };
 
 //spotify-this-song
@@ -34,14 +30,18 @@ this.spotifySong = function () {
     // var URL = ;
 
     axios.get(URL).then(function (response) {
-        // var jsonData = response.data;
+        var jsonData = response.data;
+        if (!response) {
+            response = "The Sign";
+        } else {
 
-        // var songData = [
-        //     "Artist(s): " + jsonData.
-        //     "Title: " + jsonData.
-        //     "Link: " + jsonData.
-        //     "Album: " + jsonData.
-        // ].join("\n\n");
+            // var songData = [
+            //     "Artist(s): " + jsonData.
+            //     "Title: " + jsonData.
+            //     "Link: " + jsonData.
+            //     "Album: " + jsonData.
+            // ].join("\n\n");
+        }
 
         fs.appendFile("log.txt", songData + divider, function (err) {
             if (err) throw err;
@@ -60,14 +60,17 @@ this.movie = function () {
 
     axios.get(URL).then(function (response) {
         var jsonData = response.data;
+        if (!response) {
+            response = "Mr. Nobody";
+        } else {
 
-        var movieData = [
-            "Title: " + jsonData.Title,
-            "Release Year: " + jsonData.Year,
-            "IMDB Rating: " + jsonData.Ratings[0].value,
-            "Rotten Tomatoes Rating: " + jsonData[1].value
-        ].join("\n\n");
-
+            var movieData = [
+                "Title: " + jsonData.Title,
+                "Release Year: " + jsonData.Year,
+                "IMDB Rating: " + jsonData.Ratings[0].value,
+                "Rotten Tomatoes Rating: " + jsonData[1].value
+            ].join("\n\n");
+        }
         fs.appendFile("log.txt", movieData + divider, function (err) {
             if (err) throw err;
             console.log(movieData);
@@ -79,10 +82,16 @@ this.movie = function () {
 
 //do-what-it-says
 this.random = function () {
-    var URL = "";
-
-    axios.get(URL).then(function (response) {
-
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        } else {
+            spotifySong(data);
+            fs.appendFile("log.txt", songData + divider, function (err) {
+                if (err) throw err;
+                console.log(songData);
+            });
+        }
 
     })
 };
