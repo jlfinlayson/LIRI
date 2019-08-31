@@ -1,6 +1,6 @@
-# Liri
+# LIRI
 
-Liri is a command line application that allows you to for information on your favorite movies, songs and bands. There is even a random feature if you are unable to decide on what to search for. <br>
+LIRI is a command line application that allows you to for information on your favorite movies, songs and bands. There is even a random feature if you are unable to decide on what to search for. <br>
 
  
  ### Technologies Used
